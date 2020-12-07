@@ -1,0 +1,24 @@
+/* 
+Alexander Eriksson, 19940902-5971 
+Uppgift 4 WEBPROG
+macOS
+*/
+
+body{                               /* body  */
+    background-color: rgb(230, 230, 230);
+}
+
+header{
+    margin: 40px auto;
+    width: 700px;
+    text-align: center;
+}
+
+form{
+    margin: 10px auto;
+    width: 700px;
+}
+
+
+
+

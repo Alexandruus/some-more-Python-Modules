@@ -1,0 +1,79 @@
+<!--Alexander Eriksson, 19940902-5971 -->
+<!--Uppgift 4 WEBPROG-->
+<!--macOS-->
+
+<!DOCTYPE HTML>
+<html lang = "sv">
+
+    <head>
+            <meta charset = "utf-8">
+            <link rel="stylesheet" href = "index.css">    <!-- Hämtar css filen-->
+            <script type="text/javascript" src = ".js" ></script>  <!-- hämtar javascript filen-->
+            <title>Formulär</title>                            <!-- titel på dokumentet-->
+    </head>
+
+                                                <!--Body börjar här-->
+    <body>
+        <header>                                    <!-- Header,rubrik samt underrubrik(paragrafen)-->
+            <h1> Beställning & leverans </h1>
+            <p> Vänligen fyll i formuläret. Nödvändiga fält är markerade med * </p>
+        </header>
+
+        <form action = "#" >        <!--Formuläret börjar här -->
+            
+            <fieldset>                              <!-- Delar upp formuläret-->
+                <legend> Kontaktuppgifter</legend>      <!-- Blir rubrik för varje fieldset-->
+                <label class = label> Namn  * </label>   <!--Skapar input för namn, samt gör den required så att användare måste skriva in-->
+                <input id = "namn" type= "text" name = "namn" placeholder = "Ditt namn" required> 
+                <br/>                                       <!--Radbrytningar-->
+                <br/>
+                <label>Mobiltelefon </label>      <!--Skapar input för mobiltelefon med pattern för att användare ska skriva rätt format-->
+                <input id = "mobil" type = "tel" name = "mobil" pattern = "([0]{1}[0-9]{9})" placeholder = "0XX-XXXXXXX"  >  
+                <br/>
+                <br/>
+                <label>Universitet * </label>    <!--Skapar en dropdown-meny där användare får välja universitet-->
+                <select id = "universitet" name = "universitet" required>
+                    <option value = "" disabled selected> Välj Universitet</option> <!--Disabeled select fungerar som placeholder-->
+                    <option value = "chalmers"> Chalmers Tekniska Högskola </option>
+                    <option value = "kth"> Kungliga Tekniska Högskolan </option>
+                    <option value = "su"> Stockholms Universitet </option>
+                    <option value = "uu"> Uppsala Universitet </option>
+                </select>
+                <br/>
+                <br/>
+                <label> Epostadress * </label>      <!--Skapar input för epost, samt anropar validateEmail() onchange-->
+                <input id = "epost" type = "text" name = "epost" placeholder = namn@universitet.se  onchange = "validateEmail()" required/>
+                </fieldset>
+
+            <fieldset>          <!--Ny sektion-->
+                <legend>Leveransuppgifter</legend>
+                <br/>
+                <br/>
+                <label> Registeringsnummber *  </label>     <!--Skapar input för reg-nummer och tvingar användare att följa ett särskilt mönster-->
+                <input id = "reg" type = "text" name = "reg" pattern = "([A-Za-z]{3}[0-9]{3})" placeholder = "XXX123" required />
+                <br/>
+                <br/>
+                <label> Bic-nummer * </label>        <!--Skapar input för bic-nummer samt anropar validateBic() onchange. Tvingar även användare att skriva in särskilt format samt sätter maxlängd-->
+                <input id = "bic" type = "text" name = "bic" onchange = "validateBic()" placeholder = "XXXXYYYYZ" maxlength ="20" pattern = "([A-Za-z]{4}-?[0-9]{6}-?[0-9]{1})" required/>
+                <br/>
+                <br/>
+                <label> Önskat leveransdatum * </label> <!--Skapar input för datum-->
+                <input id = "date" type = "date" name = "date" required />
+                <br/>
+                <br/>
+            </fieldset>
+
+            <fieldset>      <!--Ny sektion-->
+                <legend>Färgval</legend>
+                <label> Välj färg</label>       <!--Skapar input för färg-->
+                <input type ="color" name ="color" /> 
+            </fieldset>
+
+            <br/>
+            <input type = "submit" value = "Skicka" />  <!--Användare kan välja att skicka eller nollställa formuläret-->
+            <input type = "reset" name = "Nollställ" /> 
+        </form>                 <!--Formuläret slutar här-->
+
+    </body>                     <!--Body slutar här -->
+
+</html>
